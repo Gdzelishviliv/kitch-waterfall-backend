@@ -7,11 +7,11 @@ export class Chef {
   id: number;
 
   @OneToOne(() => User, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'userId' }) // Explicitly naming the FK
+  @JoinColumn({ name: 'userId' })
   user: User;
 
   @Column()
-  userId: number; // Explicit foreign key
+  userId: number;
 
   @Column()
   bio: string;

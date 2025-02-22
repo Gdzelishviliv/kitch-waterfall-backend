@@ -10,6 +10,9 @@ src/firebase/firebase-config.json
 .firebase/
 .firebaserc
 
+#migrations
+/src/migrations
+
 # Logs
 logs
 *.log
