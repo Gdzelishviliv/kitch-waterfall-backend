@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToOne } from 'typeorm';
-import { Chef } from '../chefs/chef.entity';
+import { Chef } from 'src/chefs/chef.entity';
 
 @Entity('users')
 export class User {
@@ -12,7 +12,7 @@ export class User {
   @Column()
   passwordHash: string;
 
-  @Column({ default: 'viewer' }) // 'viewer' | 'chef'
+  @Column({ default: 'viewer' })
   role: string;
 
   @CreateDateColumn()

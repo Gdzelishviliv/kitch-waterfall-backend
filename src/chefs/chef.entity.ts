@@ -1,24 +1,24 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, CreateDateColumn } from 'typeorm';
-import { User } from '../users/user.entity';
+import { User } from 'src/users/user.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
 
-@Entity('chefs')
+@Entity()
 export class Chef {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => User, (user) => user.chef, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'user_id' })
+  @OneToOne(() => User, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'userId' }) // Explicitly naming the FK
   user: User;
 
-  @Column('text', { nullable: true })
+  @Column()
+  userId: number; // Explicit foreign key
+
+  @Column()
   bio: string;
 
   @Column({ default: false })
   complianceAck: boolean;
 
-  @Column('decimal', { nullable: true })
-  defaultDishPrice: number;
-
-  @CreateDateColumn()
-  createdAt: Date;
+  @Column()
+  defaultCuisineType: string;
 }
